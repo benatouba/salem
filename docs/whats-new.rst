@@ -7,6 +7,7 @@ v0.3.x (Unreleased)
 -------------------
 - address deprecations, including dropping support for numpy and pandas below
 versions 2.0 (:pull:`259`).
+- fix a bug in which ```salem.__version__``` would not show the correct version
 
 v0.3.11 (12 July 2024)
 ----------------------
