@@ -345,7 +345,10 @@ class DataLevels(object):
         orientation = 'horizontal'
         if position in ['left', 'right']:
             orientation = 'vertical'
-        cax = make_axes_locatable(ax).append_axes(position, size=size, pad=pad)
+        # Use axes_class=plt.Axes to avoid issues with cartopy GeoAxes
+        # which requires a projection kwarg that append_axes doesn't provide
+        cax = make_axes_locatable(ax).append_axes(position, size=size, pad=pad,
+                                                  axes_class=plt.Axes)
         return self.colorbarbase(cax, orientation=orientation, **kwargs)
 
     def plot(self, ax):
